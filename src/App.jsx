@@ -10,7 +10,7 @@ function App() {
       <div className="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <Navbar />
         <Routes>
-          <Route path="/admin/admin" element={<Admin />} />
+          <Route path="/admin/admins" element={<Admin />} />
         </Routes>
         <ToastContainer />
       </div>

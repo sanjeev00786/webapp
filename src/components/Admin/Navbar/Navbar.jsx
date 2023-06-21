@@ -1,9 +1,16 @@
 import { ProfileMenu, Logo } from "..";
-import { MdAdminPanelSettings } from "react-icons/md";
-import { SiHomebridge } from "react-icons/si";
+import {
+  MdAdminPanelSettings,
+  MdOutlineNotificationsNone,
+} from "react-icons/md";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { TbHomeShield } from "react-icons/tb";
+import { BiMessageRoundedDots } from "react-icons/bi";
+import { FaUsersCog } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
+import { MenuBG } from "../../../assets";
 
 const Navbar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -33,57 +40,15 @@ const Navbar = () => {
             onClick={handleMenu}
           >
             <span className="sr-only">Toggle sidebar</span>
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
+            <HiOutlineMenuAlt2 className="w-6 h-6" />
           </button>
           <button className="p-2 transition-colors rounded-lg shadow-md hover:bg-indigo-800 hover:text-white focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-white focus:ring-offset-2">
             <span className="sr-only">Toggle message panel</span>
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-              />
-            </svg>
+            <BiMessageRoundedDots className="w-6 h-6" />
           </button>
           <button className="p-2 transition-colors rounded-lg shadow-md hover:bg-indigo-800 hover:text-white focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-white focus:ring-offset-2">
             <span className="sr-only">Toggle notifications panel</span>
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
+            <MdOutlineNotificationsNone className="w-6 h-6" />
           </button>
         </div>
 
@@ -114,7 +79,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   tabIndex={2}
-                  to="/admin/admin"
+                  to="/admin/admins"
                   className="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white"
                 >
                   <span
@@ -125,15 +90,24 @@ const Navbar = () => {
                   </span>
                   <span>Admins</span>
                 </Link>
+                <Link
+                  tabIndex={3}
+                  to="/admin/users"
+                  className="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white"
+                  >
+                    <FaUsersCog className="w-6 h-6" />
+                  </span>
+                  <span>Users</span>
+                </Link>
               </div>
 
               <div className="flex-shrink-0 p-4 mt-10">
                 <div className="hidden p-2 space-y-6 bg-gray-100 rounded-lg md:block">
-                  <img
-                    aria-hidden="true"
-                    className="-mt-10"
-                    src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/52b4b4abb92ef251f6610be416038b48209d7a81/public/assets/images/undraw_web_developer_p3e5.svg"
-                  />
+                  <img aria-hidden="true" className="-mt-10" src={MenuBG} />
                 </div>
               </div>
             </nav>
